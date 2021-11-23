@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Форма заявки ajax</title>
-</head>
-<body>
-    <form name = "MyForm" id = "callbacks" action = "" method = "post">
-        <input name = "name" type = "text" placeholder = "Ваше имя" /><br/><br/>
-        <input name = "phone" type = "tel" placeholder = "Ваш телефон" /><br/><br/>
-        <textarea name = "body" placeholder = "Ваше сообщение"></textarea><br/><br/>
-        <input id = "submit" type = "submit" name = "done"/>
-</form>
-<div id = "erconts" style = "display: none">
-</div>
-<script type = "text/javascript" src="./script/script.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</body>
-</html> 
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/style.css" />
+		<title>Форма заявки ajax</title>
+	</head>
+
+	<body>
+		<div id="main">
+
+		</div>
+		<button class="viewform" id="bottonphp">Форма заявки</button>
+		<div class="form_container" id="forma">
+			<div class="form-container-two">
+				<div class="title">
+					<p class="title_text">Оставить заявку</p>
+					<button class="viewform closeform" id="closeform">x</button>
+				</div>
+				<div class="forma">
+					<div class="subtitle">Заполните эту форму если вы хотите оформить заказ или получить консультацию.</div>
+					<form name="MyForm" id="callbacks">
+						<label for="">Как вас зовут?</label><br><br>
+						<input name="name" type="text" placeholder="Введите ваше имя " required /><br /><br />
+						<label for="">Введите ваш номер телефона *</label><br><br>
+						<input name="phone" type="tel" placeholder="(999) 999 99 99 *" required /><br /><br />
+						<label for="">Комментарий </label><br><br>
+
+						<textarea name="body" placeholder="Ваш комментарий или вопрос, не обязательно"></textarea><br /><br />
+						<input type="checkbox" checked="checked" required /> <a href="" class="pesonalized">Согласие о персональных данных</a> <span>*</span> <br /><br />
+						<div class="button_submit">
+							<button id="submit" class="submit-btn">Отправка</button>
+						</div>
+					</form>
+					<div id="erconts" style="display: block"></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const toggleForm = document.querySelectorAll(".viewform");
+			const form = document.querySelector("#forma");
+			for (let i = 0; i < toggleForm.length; i++) {
+				toggleForm[i].addEventListener("click", () => {
+					form.classList.toggle("viewform");
+				});
+			}
+
+ document.getElementById('bottonphp').onclick = function() {
+  document.getElementById('main').classList.toggle('background');
+}
+document.getElementById('closeform').onclick = function() {
+  document.getElementById('main').classList.remove('background'); 
+}
+		</script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="./script/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	</body>
+</html>
