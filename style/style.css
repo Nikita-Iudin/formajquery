@@ -107,3 +107,13 @@ animation-duration: 1.5s;
     padding: 10px;
     border-radius: 3px;
 }
+
+input {
+width: 100%; 
+}
+textarea {
+    width:100%;
+}
+input[type="checkbox"] {
+    width: 10%; 
+}
